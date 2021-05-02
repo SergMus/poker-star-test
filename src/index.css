@@ -1,0 +1,18 @@
+.deck {
+  width: 1020px;
+  margin: 50px auto;
+}
+
+.cards {
+  padding: 0;
+  margin: 30px 0 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(12, auto);
+  grid-gap: 5px;
+}
+
+.cards img {
+  display: block;
+  width: 100%;
+}
