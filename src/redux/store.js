@@ -11,5 +11,5 @@ export default function configureStore() {
     {},
     composeEnhancers(applyMiddleware(ReduxThunk))
   );
-  return store;
+  return (window.store = store);
 }

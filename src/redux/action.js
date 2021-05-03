@@ -14,7 +14,6 @@ export function getDeck() {
     const cards = await fetch(
       `/api/deck/${deck.deck_id}/draw/?count=${deck.remaining}`
     ).then((response) => response.json());
-
     dispatch({
       type: ACTIONS.SET_CARDS,
       payload: {
@@ -27,6 +26,11 @@ export function getDeck() {
 export function sumDeck() {
   return (dispatch) => {};
 }
-export function sortDeck() {
-  return (dispatch) => {};
+export function sortDeck(cards) {
+  return (dispatch) => {
+    dispatch({
+      type: ACTIONS.SORT_DECK,
+      cards,
+    });
+  };
 }

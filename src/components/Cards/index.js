@@ -1,6 +1,6 @@
 import React from "react";
 
-const getLabel = card => {
+export const getLabel = (card) => {
   var suite = "";
 
   if (card.suit === "HEARTS") {
@@ -18,7 +18,7 @@ const getLabel = card => {
 
 export default ({ cards }) => (
   <ul className="cards mw8-ns">
-    {cards.map(card => (
+    {cards.map((card) => (
       <li>
         <img src={card.image} alt={getLabel(card)} />
       </li>

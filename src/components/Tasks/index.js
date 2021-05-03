@@ -4,7 +4,7 @@ import { sortDeck, sumDeck } from "../../redux/action";
 
 class Tasks extends React.Component {
   sortDeck() {
-    this.props.sortDeck();
+    this.props.sortDeck(this.props.cards);
   }
 
   async sumDeck() {
@@ -59,7 +59,4 @@ class Tasks extends React.Component {
   }
 }
 
-export default connect(
-  null,
-  { sortDeck, sumDeck }
-)(Tasks);
+export default connect(null, { sortDeck, sumDeck })(Tasks);

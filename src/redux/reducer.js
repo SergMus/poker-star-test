@@ -2,8 +2,8 @@ import { ACTIONS } from "./action";
 
 const defaultState = {
   deck: {
-    has_cards: false
-  }
+    has_cards: false,
+  },
 };
 
 const reducer = (state = defaultState, action) => {
@@ -13,10 +13,20 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         deck,
-        cards
+        cards,
       };
     }
-
+    case ACTIONS.SORT_DECK: {
+      return {
+        ...state,
+        deck: {
+          spades: action.cards.filter((item) => item.suit === "SPADES"),
+          clubs: action.cards.filter((item) => item.suit === "CLUBS"),
+          diamonds: action.cards.filter((item) => item.suit === "DIAMONDS"),
+          hearts: action.cards.filter((item) => item.suit === "HEARTS"),
+        },
+      };
+    }
     default:
       return state;
   }
