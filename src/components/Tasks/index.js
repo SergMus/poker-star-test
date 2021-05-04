@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { sortDeck, sumDeck } from "../../redux/action";
 
 class Tasks extends React.Component {
   sortDeck() {
     this.props.sortDeck(this.props.cards);
+    this.props.activateComponent();
   }
 
   async sumDeck() {
@@ -25,6 +27,7 @@ class Tasks extends React.Component {
                 <li>A = 1, J,Q,K = 10</li>
               </ol>
             </p>
+
             <button
               onClick={() => this.sumDeck()}
               className="bg-animate bg-dark-blue inline-flex items-center ma2 tc bw0 white b pa2 dim"
@@ -46,12 +49,14 @@ class Tasks extends React.Component {
                 </li>
               </ol>
             </p>
-            <button
-              onClick={() => this.sortDeck()}
-              className="bg-animate bg-dark-blue inline-flex items-center ma2 tc bw0 white b pa2 dim"
-            >
-              Sort Cards
-            </button>
+            <NavLink to="/sort">
+              <button
+                onClick={() => this.sortDeck()}
+                className="bg-animate bg-dark-blue inline-flex items-center ma2 tc bw0 white b pa2 dim"
+              >
+                Sort Cards
+              </button>
+            </NavLink>
           </div>
         </div>
       </div>
